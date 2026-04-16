@@ -1,0 +1,106 @@
+[
+  {
+    "tag": "yolov8n_r640",
+    "model": "yolov8n",
+    "resolution": 640,
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8n_r640\\weights\\best.pt",
+    "mAP50": 0.4882798483339091,
+    "mAP50-95": 0.22694304502025048,
+    "precision": 0.6640590107102579,
+    "recall": 0.44470069186804373
+  },
+  {
+    "tag": "yolov8n_r800",
+    "model": "yolov8n",
+    "resolution": 800,
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8n_r800\\weights\\best.pt",
+    "mAP50": 0.5022203365689908,
+    "mAP50-95": 0.2401520264002444,
+    "precision": 0.6816021066147991,
+    "recall": 0.4543601056185033
+  },
+  {
+    "tag": "yolov8s_r640",
+    "model": "yolov8s",
+    "resolution": 640,
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8s_r640\\weights\\best.pt",
+    "mAP50": 0.521728410381709,
+    "mAP50-95": 0.25039115045614935,
+    "precision": 0.6823116257774523,
+    "recall": 0.48096024283114863
+  },
+  {
+    "tag": "yolov8m_r640",
+    "model": "yolov8m",
+    "resolution": 640,
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8m_r640\\weights\\best.pt",
+    "mAP50": 0.5277022122028528,
+    "mAP50-95": 0.255655706185373,
+    "precision": 0.6839327646486036,
+    "recall": 0.4861459273371436
+  },
+  {
+    "tag": "yolov8m_r640_fp16",
+    "model": "yolov8m",
+    "resolution": 640,
+    "precision_mode": "fp16",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8m_r640\\weights\\best.pt",
+    "mAP50": 0.509401875080733,
+    "mAP50-95": 0.24225558164240102,
+    "precision": 0.6821202862359098,
+    "recall": 0.4621143754804639
+  },
+  {
+    "tag": "yolov8n_r640_fp16",
+    "model": "yolov8n",
+    "resolution": 640,
+    "precision_mode": "fp16",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8n_r640\\weights\\best.pt",
+    "mAP50": 0.4878271918520131,
+    "mAP50-95": 0.22617600113448783,
+    "precision": 0.6606193321179359,
+    "recall": 0.44533882345417936
+  },
+  {
+    "tag": "yolov8n_r800_fp16",
+    "model": "yolov8n",
+    "resolution": 800,
+    "precision_mode": "fp16",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8n_r800\\weights\\best.pt",
+    "mAP50": 0.41368405066141334,
+    "mAP50-95": 0.1808982777534062,
+    "precision": 0.5741523293972997,
+    "recall": 0.3993535298057508
+  },
+  {
+    "tag": "yolov8s_r640_fp16",
+    "model": "yolov8s",
+    "resolution": 640,
+    "precision_mode": "fp16",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8s_r640\\weights\\best.pt",
+    "mAP50": 0.5208078890924243,
+    "mAP50-95": 0.2493518782758341,
+    "precision": 0.679955571800978,
+    "recall": 0.4801026780760952
+  },
+  {
+    "tag": "yolov8s_r800",
+    "model": "yolov8s",
+    "resolution": 800,
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8s_r800\\weights\\best.pt",
+    "mAP50": 0.5252500840532224,
+    "mAP50-95": 0.25727245890554196,
+    "precision": 0.6947676811697021,
+    "recall": 0.47832481032120056
+  },
+  {
+    "tag": "yolov8m_r800",
+    "model": "yolov8m",
+    "resolution": 800,
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\yolov8m_r800\\weights\\best.pt",
+    "mAP50": 0.5250141975743607,
+    "mAP50-95": 0.25715989365851116,
+    "precision": 0.703686863045562,
+    "recall": 0.47077065903015536
+  }
+]

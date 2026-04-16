@@ -1,0 +1,21 @@
+# Datasets
+xbd/
+uavs-tebde/
+yolo_dataset/
+classifier_patches/
+classifier_patches_3class/
+
+# Model weights
+*.pt
+outputs/models/
+
+# Training runs
+runs/
+
+# Raw data
+*.tgz
+
+# Python
+__pycache__/
+*.pyc
+.venv/

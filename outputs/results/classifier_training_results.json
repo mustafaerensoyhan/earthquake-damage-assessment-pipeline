@@ -1,0 +1,294 @@
+[
+  {
+    "tag": "efficientnet_b0_fp32",
+    "model": "efficientnet_b0",
+    "precision_mode": "fp32",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\efficientnet_b0_fp32_best.pt",
+    "val_accuracy": 0.9012,
+    "val_macro_f1": 0.4426,
+    "classification_report": {
+      "no-damage": {
+        "precision": 0.9766264838501887,
+        "recall": 0.9186358521596122,
+        "f1-score": 0.9467439785905442,
+        "support": 11553.0
+      },
+      "minor-damage": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 19.0
+      },
+      "major-damage": {
+        "precision": 0.08803611738148984,
+        "recall": 0.36792452830188677,
+        "f1-score": 0.14207650273224043,
+        "support": 106.0
+      },
+      "destroyed": {
+        "precision": 0.6121262458471761,
+        "recall": 0.7685088633993743,
+        "f1-score": 0.6814609338881183,
+        "support": 959.0
+      },
+      "accuracy": 0.9012423834770911,
+      "macro avg": {
+        "precision": 0.41919721176971364,
+        "recall": 0.5137673109652183,
+        "f1-score": 0.44257035380272575,
+        "support": 12637.0
+      },
+      "weighted avg": {
+        "precision": 0.9400432591699859,
+        "recall": 0.9012423834770911,
+        "f1-score": 0.9184390543281538,
+        "support": 12637.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        10613,
+        123,
+        362,
+        455
+      ],
+      [
+        19,
+        0,
+        0,
+        0
+      ],
+      [
+        55,
+        0,
+        39,
+        12
+      ],
+      [
+        180,
+        0,
+        42,
+        737
+      ]
+    ]
+  },
+  {
+    "tag": "resnet34_fp32",
+    "model": "resnet34",
+    "precision_mode": "fp32",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\resnet34_fp32_best.pt",
+    "val_accuracy": 0.8483,
+    "val_macro_f1": 0.4129,
+    "classification_report": {
+      "no-damage": {
+        "precision": 0.9829596412556054,
+        "recall": 0.8538042066995586,
+        "f1-score": 0.9138410227904391,
+        "support": 11553.0
+      },
+      "minor-damage": {
+        "precision": 0.012552301255230125,
+        "recall": 0.15789473684210525,
+        "f1-score": 0.023255813953488372,
+        "support": 19.0
+      },
+      "major-damage": {
+        "precision": 0.07046979865771812,
+        "recall": 0.39622641509433965,
+        "f1-score": 0.11965811965811966,
+        "support": 106.0
+      },
+      "destroyed": {
+        "precision": 0.45897000565930957,
+        "recall": 0.8456725755995829,
+        "f1-score": 0.59501100513573,
+        "support": 959.0
+      },
+      "accuracy": 0.8483026034660125,
+      "macro avg": {
+        "precision": 0.3812379367069658,
+        "recall": 0.5633994835588967,
+        "f1-score": 0.4129414903844443,
+        "support": 12637.0
+      },
+      "weighted avg": {
+        "precision": 0.9340819231807277,
+        "recall": 0.8483026034660125,
+        "f1-score": 0.8816448928837528,
+        "support": 12637.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        9864,
+        235,
+        517,
+        937
+      ],
+      [
+        16,
+        3,
+        0,
+        0
+      ],
+      [
+        45,
+        0,
+        42,
+        19
+      ],
+      [
+        110,
+        1,
+        37,
+        811
+      ]
+    ]
+  },
+  {
+    "tag": "efficientnet_b0_fp16",
+    "model": "efficientnet_b0",
+    "precision_mode": "fp16",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\efficientnet_b0_fp32_best.pt",
+    "val_accuracy": 0.9009,
+    "val_macro_f1": 0.4423,
+    "classification_report": {
+      "no-damage": {
+        "precision": 0.9767056440475095,
+        "recall": 0.9182030641391846,
+        "f1-score": 0.9465512626037298,
+        "support": 11553.0
+      },
+      "minor-damage": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 19.0
+      },
+      "major-damage": {
+        "precision": 0.08823529411764706,
+        "recall": 0.36792452830188677,
+        "f1-score": 0.14233576642335766,
+        "support": 106.0
+      },
+      "destroyed": {
+        "precision": 0.6094137076796037,
+        "recall": 0.7695516162669447,
+        "f1-score": 0.680184331797235,
+        "support": 959.0
+      },
+      "accuracy": 0.9009258526549023,
+      "macro avg": {
+        "precision": 0.41858866146119,
+        "recall": 0.513919802177004,
+        "f1-score": 0.4422678402060807,
+        "support": 12637.0
+      },
+      "weighted avg": {
+        "precision": 0.9399114499107453,
+        "recall": 0.9009258526549023,
+        "f1-score": 0.9181681650941927,
+        "support": 12637.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        10608,
+        123,
+        361,
+        461
+      ],
+      [
+        19,
+        0,
+        0,
+        0
+      ],
+      [
+        55,
+        0,
+        39,
+        12
+      ],
+      [
+        179,
+        0,
+        42,
+        738
+      ]
+    ]
+  },
+  {
+    "tag": "resnet34_fp16",
+    "model": "resnet34",
+    "precision_mode": "fp16",
+    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\resnet34_fp32_best.pt",
+    "val_accuracy": 0.8485,
+    "val_macro_f1": 0.413,
+    "classification_report": {
+      "no-damage": {
+        "precision": 0.9828668194043232,
+        "recall": 0.8540638795118151,
+        "f1-score": 0.9139496109670249,
+        "support": 11553.0
+      },
+      "minor-damage": {
+        "precision": 0.012605042016806723,
+        "recall": 0.15789473684210525,
+        "f1-score": 0.023346303501945526,
+        "support": 19.0
+      },
+      "major-damage": {
+        "precision": 0.07058823529411765,
+        "recall": 0.39622641509433965,
+        "f1-score": 0.11982881597717546,
+        "support": 106.0
+      },
+      "destroyed": {
+        "precision": 0.45892351274787535,
+        "recall": 0.8446298227320125,
+        "f1-score": 0.5947136563876652,
+        "support": 959.0
+      },
+      "accuracy": 0.8484608688771069,
+      "macro avg": {
+        "precision": 0.3812459023657807,
+        "recall": 0.5632037135450682,
+        "f1-score": 0.4129595967084528,
+        "support": 12637.0
+      },
+      "weighted avg": {
+        "precision": 0.9339946080591007,
+        "recall": 0.8484608688771069,
+        "f1-score": 0.8817231689671541,
+        "support": 12637.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        9867,
+        234,
+        516,
+        936
+      ],
+      [
+        16,
+        3,
+        0,
+        0
+      ],
+      [
+        45,
+        0,
+        42,
+        19
+      ],
+      [
+        111,
+        1,
+        37,
+        810
+      ]
+    ]
+  }
+]

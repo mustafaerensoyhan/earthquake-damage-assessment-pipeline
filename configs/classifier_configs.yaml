@@ -1,0 +1,45 @@
+# Classifier experiment configurations
+# Two architectures × two precisions = 4 configurations.
+
+training:
+  epochs: 50
+  batch_size: 32
+  optimizer: AdamW
+  lr: 0.001
+  weight_decay: 0.0001
+  warmup_epochs: 5
+  scheduler: cosine       # cosine decay after warm-up
+  input_size: 224
+  num_classes: 4          # no-damage, minor-damage, major-damage, destroyed
+  use_class_weights: true
+
+  augmentation:
+    horizontal_flip: true
+    vertical_flip: true
+    rotation: 15
+    color_jitter:
+      brightness: 0.2
+      contrast: 0.2
+      saturation: 0.2
+
+models:
+  - name: efficientnet_b0
+    pretrained: true       # ImageNet initialisation
+  - name: resnet34
+    pretrained: true
+
+precisions:
+  - fp32
+  - fp16
+
+# Cross-domain evaluation (TEBDE)
+cross_domain:
+  label_mapping:
+    no-damage: Intact
+    minor-damage: Damaged
+    major-damage: Damaged
+    destroyed: Collapsed
+  tebde_classes:
+    - Intact
+    - Damaged
+    - Collapsed

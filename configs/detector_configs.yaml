@@ -1,0 +1,42 @@
+# Detector experiment configurations
+# Each entry defines a (model, resolution, precision) triple.
+# Training script iterates over these to produce one trained model per unique
+# (model, resolution) pair; FP16 is applied at inference time only.
+
+training:
+  epochs: 100
+  patience: 15            # early-stopping on val mAP
+  optimizer: SGD
+  lr0: 0.01
+  momentum: 0.937
+  weight_decay: 0.0005
+  warmup_epochs: 3
+  augmentation:
+    mosaic: 1.0
+    mixup: 0.1
+    hsv_h: 0.015
+    hsv_s: 0.7
+    hsv_v: 0.4
+    flipud: 0.5
+    fliplr: 0.5
+
+models:
+  - name: yolov8n
+    batch_size: 16
+  - name: yolov8s
+    batch_size: 8
+  - name: yolov8m
+    batch_size: 4
+
+resolutions:
+  - 640
+  - 800
+
+precisions:
+  - fp32
+  - fp16
+
+# Inference thresholds
+inference:
+  conf_threshold: 0.25
+  nms_iou_threshold: 0.5
