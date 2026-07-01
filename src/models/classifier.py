@@ -51,9 +51,24 @@ def _build_resnet34(num_classes: int = NUM_CLASSES) -> nn.Module:
     return model
 
 
+def _build_deit_tiny(num_classes: int = NUM_CLASSES) -> nn.Module:
+    """DeiT-Tiny vision transformer (timm) with a num_classes head.
+
+    Requires `timm` (pip install timm). Native input is 224x224, matching
+    CLASSIFIER_INPUT_SIZE, so no positional-embedding interpolation is needed.
+    timm models return logits from forward().
+    """
+    import timm  # lazy import: only needed when this backbone is used
+    model = timm.create_model(
+        "deit_tiny_patch16_224", pretrained=True, num_classes=num_classes,
+    )
+    return model
+
+
 _BUILDERS = {
     "efficientnet_b0": _build_efficientnet_b0,
     "resnet34": _build_resnet34,
+    "deit_tiny": _build_deit_tiny,
 }
 
 

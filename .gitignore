@@ -1,21 +1,66 @@
-# Datasets
+# ===== data + derived image patches (never publish: large + xBD is CC BY-NC-SA) =====
 xbd/
 uavs-tebde/
+rescuenet_patches/
+figure_rescuenet_row/
 yolo_dataset/
-classifier_patches/
 classifier_patches_3class/
+classifier_patches/
+*_patches_3class/
+*_patches/
+/data/
+/datasets/
+*.tif
+*.tiff
 
-# Model weights
-*.pt
+# ===== model weights / checkpoints (large) =====
 outputs/models/
+*.pt
+*.pth
+*.ckpt
+*.onnx
 
-# Training runs
+# ===== raw run outputs =====
+outputs/uncertainty/
+outputs/logs/
 runs/
+wandb/
+lightning_logs/
 
-# Raw data
+# ===== archives / build artifacts (commit source, not zips) =====
+*.zip
 *.tgz
+*.tar
+*.tar.gz
+*.7z
 
-# Python
+# ===== secrets / credentials =====
+.env
+.env.*
+*.key
+*.pem
+*_token*
+*secret*
+credentials*
+.netrc
+.huggingface/
+.cache/huggingface/
+
+# ===== local figure source images (article JPGs live in Downloads) =====
+*_HTML.jpg
+*_grid.png
+
+# ===== agent/editor state =====
+.claude/
+
+# ===== python / os cruft =====
 __pycache__/
 *.pyc
-.venv/Project_Methodology__MustafaErenSoyhan.pdf
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+*.egg-info/
+.pytest_cache/
+*.cache

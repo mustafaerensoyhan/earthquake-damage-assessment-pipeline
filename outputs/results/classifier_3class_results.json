@@ -7,7 +7,7 @@
     "epochs": 50,
     "best_epoch": 43,
     "train_time_s": 7823.0,
-    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\efficientnet_b0_3class_fp32_best.pt",
+    "best_weights": "outputs/models/efficientnet_b0_3class_fp32_best.pt",
     "val_accuracy": 0.9004,
     "val_macro_f1": 0.5815,
     "classification_report": {
@@ -521,7 +521,7 @@
     "epochs": 50,
     "best_epoch": 37,
     "train_time_s": 7324.5,
-    "best_weights": "C:\\Users\\mustafaerensoyhan\\Downloads\\SoftwareResearchProject\\outputs\\models\\resnet34_3class_fp32_best.pt",
+    "best_weights": "outputs/models/resnet34_3class_fp32_best.pt",
     "val_accuracy": 0.8796,
     "val_macro_f1": 0.5549,
     "classification_report": {

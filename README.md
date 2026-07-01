@@ -1,58 +1,74 @@
-# Two-Stage Building Damage Assessment Pipeline
+# Post-Earthquake Building Damage Assessment under Domain Shift
 
-A research project evaluating accuracy-latency tradeoffs in post-earthquake
-building damage assessment from satellite and UAV imagery.
+Code for a study on calibration, selective prediction, and few-shot adaptation
+for building damage classification when models trained on satellite imagery are
+applied to UAV imagery. A two-stage pipeline (YOLO building detection followed by
+a CNN damage classifier) is used; this repository focuses on the damage
+classification stage and its behavior under satellite-to-UAV domain shift.
 
-**Author:** Mustafa Eren Soyhan — Ontario Tech University  
-**Course:** Software Research Project (Computer Engineering)
+Companion code for a paper submitted to UBMK 2026.
 
-## Architecture
+## What this repo contains
 
-| Stage | Task | Models |
-|-------|------|--------|
-| 1 — Detector | Building localisation | YOLOv8-n / s / m |
-| 2 — Classifier | Damage severity | EfficientNet-B0, ResNet-34 |
+- `src/` — models, data loaders, and the uncertainty/adaptation code
+  (temperature scaling, selective prediction, test-time adaptation, few-shot LP-FT,
+  MC-dropout, metrics, label harmonization).
+- `scripts/` — runnable steps that dump predictions and produce the result JSONs
+  and paper figures (calibration, selective, ensemble, external validity,
+  compute cost, few-shot, cross-domain).
+- `paper/` — LaTeX source and generated figures.
+- `outputs/results/` — curated result JSONs (metrics only).
 
-## Quick Start
+Datasets, model weights, extracted patches, and virtual environments are not
+included (see Data and Licensing below).
+
+## Setup
 
 ```bash
-# 1. Install dependencies
+python -m venv .venv
+# Windows: .venv\Scripts\activate    Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
-
-# 2. Update paths in src/utils/config.py to match your machine
-
-# 3. Prepare YOLO detector dataset (all disasters)
-python scripts/prepare_yolo_data.py
-
-# 4. Prepare classifier patches (earthquake events only)
-python scripts/prepare_classifier_data.py
 ```
 
-## Project Structure
-
-```
-SoftwareResearchProject/
-├── src/
-│   ├── data/                 # Dataset parsers and loaders
-│   ├── models/               # Detector and classifier wrappers
-│   ├── training/             # Training scripts
-│   ├── evaluation/           # Metrics and benchmarking
-│   ├── pipeline/             # Two-stage inference
-│   └── utils/                # Config, timing, visualisation
-├── configs/                  # YAML experiment configurations
-├── scripts/                  # Entry-point scripts
-├── outputs/                  # Models, results, figures
-└── requirements.txt
-```
+Developed with Python 3.11, PyTorch 2.5.1 (CUDA 12.1), on an RTX 4080 Laptop GPU.
 
 ## Datasets
 
-- **xBD** — satellite imagery, 19 disaster events, 4-class damage labels
-- **UAVs-TEBDE** — UAV imagery from 2023 Türkiye earthquakes, 3-class labels
+This code uses three datasets, which you must obtain separately from their sources:
 
-## Implementation Phases
+- **xBD** (satellite, training and in-domain evaluation) —
+  https://xview2.org/  (released under CC BY-NC-SA 4.0).
+- **UAVs-TEBDE** (UAV, 2023 Turkiye earthquakes) —
+  https://doi.org/10.17632/5m349hfvkb  (Mendeley Data).
+- **RescueNet** (UAV, Hurricane Michael) —
+  Rahnemoonfar, Chowdhury, Murphy, *Scientific Data* 10:913 (2023),
+  https://doi.org/10.1038/s41597-023-02799-4.
 
-1. **Data Preparation** — parse xBD labels, convert to YOLO format, extract classifier patches
-2. **Model Training** — train detectors and classifiers across configurations
-3. **Evaluation** — mAP, accuracy/F1, latency benchmarks, cross-domain transfer
-4. **Visualisation** — tradeoff plots, confusion matrices, result tables
+Place datasets at the repository root and point the scripts at them via their
+path variables. See each script for the expected layout.
+
+## Reproducing results
+
+1. Train / obtain classifier checkpoints (see `src/training/`).
+2. Dump predictions and metrics: run the relevant `scripts/*_dump.py` and
+   `scripts/*_report.py` (e.g. `python scripts/calib_dump.py`,
+   `python scripts/calib_report.py`).
+3. Aggregate across seeds: `python scripts/aggregate_seeds.py --unc-dir outputs/uncertainty`.
+4. Build figures: `python scripts/make_reliability.py`, `make_selective_figs.py`,
+   `make_fewshot_fig.py`, etc.
+
+Results are averaged over three seeds (42, 7, 123).
+
+## Data and licensing
+
+Source code in this repository is provided for research use. The datasets above
+are governed by their own licenses and are **not redistributed here**; obtain them
+from the original sources and follow their terms. In particular, xBD is
+non-commercial (CC BY-NC-SA 4.0), and RescueNet's dataset release is CC BY-NC-ND.
+No dataset imagery, derived image patches, or trained weights are included in
+this repository.
+
+## Citation
+
+If you use this code, please cite the associated paper (UBMK 2026) once available,
+and the dataset papers listed above.

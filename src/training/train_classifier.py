@@ -164,9 +164,10 @@ def train_classifier(
     lr: float,
     use_amp: bool,
     device: torch.device,
+    seed: int = RANDOM_SEED,
 ):
     """Train a single classifier configuration and return metrics."""
-    tag = f"{model_name}_{'fp16' if use_amp else 'fp32'}"
+    tag = f"{model_name}_{'fp16' if use_amp else 'fp32'}_seed{seed}"
     logger.info("=" * 60)
     logger.info("Training: %s", tag)
     logger.info("=" * 60)
@@ -270,6 +271,7 @@ def train_classifier(
 
     return {
         "tag": tag,
+        "seed": seed,
         "model": model_name,
         "precision_mode": "fp16" if use_amp else "fp32",
         "epochs": epochs,
@@ -288,7 +290,7 @@ def main():
     parser = argparse.ArgumentParser(description="Train damage classifiers")
     parser.add_argument(
         "--model", type=str, default=None,
-        choices=["efficientnet_b0", "resnet34"],
+        choices=["efficientnet_b0", "resnet34", "deit_tiny"],
         help="Train a single architecture (default: train both)",
     )
     parser.add_argument("--epochs", type=int, default=CLASSIFIER_EPOCHS)
@@ -298,6 +300,10 @@ def main():
         "--fp16", action="store_true",
         help="Enable FP16 mixed-precision training",
     )
+    parser.add_argument(
+        "--seed", type=int, default=RANDOM_SEED,
+        help="Random seed; pass a second value for the second run",
+    )
     args = parser.parse_args()
 
     logging.basicConfig(
@@ -305,7 +311,7 @@ def main():
         format="%(asctime)s  %(levelname)-8s  %(message)s",
         datefmt="%H:%M:%S",
     )
-    seed_everything()
+    seed_everything(args.seed)
     ensure_dirs()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -330,6 +336,7 @@ def main():
             lr=args.lr,
             use_amp=args.fp16,
             device=device,
+            seed=args.seed,
         )
         all_results.append(result)
 
